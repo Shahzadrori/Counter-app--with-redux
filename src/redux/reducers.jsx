@@ -1,13 +1,13 @@
-import { State } from "./state";
+import { initstate } from "./state";
 import { BUY_ITEMS } from "./type";
 
-export const Reducer =(state=State.action)=>{
+export const Reducer=(state = initstate , action)=>{
     switch(action.type){
-        case BUY_ITEMS:
+        case BUY_ITEMS :
             return{
                 ...state,
-                items : state.items - 2
+                items: state.items -3
             }
-            default :return state;
+            default : return state;
     }
 }
