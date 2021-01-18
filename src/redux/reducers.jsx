@@ -6,7 +6,7 @@ export const Reducer=(state = initstate , action)=>{
         case BUY_ITEMS :
             return{
                 ...state,
-                items: state.items -3
+                items: state.items - action.payload
             }
             default : return state;
     }

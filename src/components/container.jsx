@@ -4,14 +4,15 @@ import { buyitem } from '../redux/action';
 
 
 const Container =(props)=>{
-    // const [item,setitem] = useState();
+    const [values,setvalues] = useState();
     return(
         <>
             <div className='wraper'>
                 <h1>WELCOME</h1>
                 <h4>Let us know what  you want to buy</h4>
-                <input type='text' value='' placeholder='ENTER THE ITEM' />
-                <button onClick={props.buyitem}>Bought {props.items} items</button>
+                <h2>Bought items {props.items}</h2>
+                <input type='text' value={values} placeholder='ENTER THE ITEM' onChange={(eve)=>setvalues(eve.target.value)} />
+                <button onClick={()=> props.buyitem(values)}>Bought {values} items</button>
             </div>
         </>
     )
@@ -25,8 +26,8 @@ const mapstatetoprops=(state)=>{
 }
 const mapstatetodispatch=(dispatch)=>{
     return{
-        buyitem :()=>{
-            dispatch(buyitem())
+        buyitem :(values)=>{
+            dispatch(buyitem(values))
         }
     }
 }
